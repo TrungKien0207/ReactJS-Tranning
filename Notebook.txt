@@ -1,0 +1,7 @@
+- Reactjs là một thư viện là js (không phải là framework) của facebook.
+- Một số thư viện khác Vuejs, Angular.
+- Sử dụng để làm giao diện người dùng.
+- Có thể sử dụng kết hợp các thư viện khác để làm một project.
+- Sử dụng React: FB, Twitter, Netflix, WhatsApp, Dropbox,...
+
+

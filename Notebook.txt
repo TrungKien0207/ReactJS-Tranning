@@ -3,5 +3,5 @@
 - Sử dụng để làm giao diện người dùng.
 - Có thể sử dụng kết hợp các thư viện khác để làm một project.
 - Sử dụng React: FB, Twitter, Netflix, WhatsApp, Dropbox,...
-
-
+- Vào extension git, gõ nội dung commit (git commit -m ) => ctrl + enter,
+vào ba chấm chọn push (SSH)

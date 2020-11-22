@@ -23,7 +23,7 @@ function TodoList({ todoList, onTodoClick }) {
   return (
     <ul className="todo-list">
       {todoList.map((todo, idx) => (
-        <li 
+        <li
           key={todo.id} 
           className={classnames({ 
             'todo-item': true,

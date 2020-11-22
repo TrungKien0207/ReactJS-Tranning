@@ -1,0 +1,10 @@
+.todo-list {
+  & > li {
+    cursor: pointer;
+  }
+
+  & > li:hover {
+    color: rgb(209, 0, 112);
+    transition: all 0.3s ease-in-out 0s;
+  }
+}

@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import './App.scss';
+import Clock from './components/Clock';
 import Pagination from './components/Pagination';
 import PostFilterForm from './components/PostFilterForm';
 import PostList from './components/PostList';
@@ -91,16 +92,23 @@ function App() {
     });
   }
 
+  //Clock
+  const [showClock, setShowClock] = useState(true);
+
   return (
     <div className="app">
       <h1>Welcome to React Hooks</h1>
+      {/* useState */}
       {/* <ColorBox /> */}
       {/* <TodoForm onSubmit={handleTodoFormSubmit} /> */}
       {/* <TodoList todos={todoList} onTodoClick={handleTodoList}/> */}
 
-      <PostFilterForm onSubmit={hanldeFiltersChange}/>
+      {/* useEffect */}
+      {/* <PostFilterForm onSubmit={hanldeFiltersChange}/>
       <PostList posts={postList}/>
-      <Pagination pagination={pagination} onPageChange={handlePageChange}/>
+      <Pagination pagination={pagination} onPageChange={handlePageChange}/> */}
+      {showClock && <Clock />}
+      <button onClick={() => setShowClock(false)}>Hide Clock</button>
     </div>
   );
 }

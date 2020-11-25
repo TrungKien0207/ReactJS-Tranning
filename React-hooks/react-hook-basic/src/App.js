@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import './App.scss';
 import BetterClock from './components/BetterClock';
 import Clock from './components/Clock';
+import MagicBox from './components/MagicBox';
 import Pagination from './components/Pagination';
 import PostFilterForm from './components/PostFilterForm';
 import PostList from './components/PostList';
@@ -108,11 +109,12 @@ function App() {
       {/* <PostFilterForm onSubmit={hanldeFiltersChange}/>
       <PostList posts={postList}/>
       <Pagination pagination={pagination} onPageChange={handlePageChange}/> */}
-      <div className="app__container">
+      {/* <div className="app__container">
         {showClock && <Clock />}
         <BetterClock />
         <button className="btn btn-warning" onClick={() => setShowClock(false)}>Hide Clock</button>
-      </div>
+      </div> */}
+      <MagicBox />
     </div>
   );
 }

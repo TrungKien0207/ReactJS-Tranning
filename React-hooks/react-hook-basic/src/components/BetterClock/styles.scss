@@ -1,0 +1,14 @@
+.better-clock {
+  width: 20em;
+  background: #080808;;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+
+  &__time {
+    text-align: center;
+    padding: 1em 0;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+  }
+}

@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import './App.scss';
+import BetterClock from './components/BetterClock';
 import Clock from './components/Clock';
 import Pagination from './components/Pagination';
 import PostFilterForm from './components/PostFilterForm';
@@ -107,8 +108,11 @@ function App() {
       {/* <PostFilterForm onSubmit={hanldeFiltersChange}/>
       <PostList posts={postList}/>
       <Pagination pagination={pagination} onPageChange={handlePageChange}/> */}
-      {showClock && <Clock />}
-      <button onClick={() => setShowClock(false)}>Hide Clock</button>
+      <div className="app__container">
+        {showClock && <Clock />}
+        <BetterClock />
+        <button className="btn btn-warning" onClick={() => setShowClock(false)}>Hide Clock</button>
+      </div>
     </div>
   );
 }

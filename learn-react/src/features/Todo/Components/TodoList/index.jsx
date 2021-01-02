@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames'
-import './styles.scss'
+import classnames from 'classnames';
+import './styles.scss';
 
 TodoList.propTypes = {
   todoList: PropTypes.array,
@@ -15,23 +15,23 @@ TodoList.defaultProps = {
 
 function TodoList({ todoList, onTodoClick }) {
   const handleTodoClick = (todo, idx) => {
-    if(!onTodoClick) return; //Nếu cha không truyền xuống thì không làm gì
+    if (!onTodoClick) return; //Nếu cha không truyền xuống thì không làm gì
 
     onTodoClick(todo, idx); //Ngược lại trả về todoList và index
-  }
+  };
 
   return (
     <ul className="todo-list">
       {todoList.map((todo, idx) => (
         <li
-          key={todo.id} 
-          className={classnames({ 
+          key={todo.id}
+          className={classnames({
             'todo-item': true,
             completed: todo.status === 'completed',
           })}
           onClick={() => handleTodoClick(todo, idx)}
         >
-          { todo.title }
+          {todo.title}
         </li>
       ))}
     </ul>

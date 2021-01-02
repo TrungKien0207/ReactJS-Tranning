@@ -1,12 +1,25 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
+import productAPI from './api/productAPI';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 //import './App.css';
 import TodoFeature from './features/Todo';
 
 function App() {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const params = {
+        _limit: 10,
+      };
+      const productList = await productAPI.getAll(params);
+      console.log(productList);
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <div className="App">
       <h1>Home page</h1>

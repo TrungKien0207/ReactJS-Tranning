@@ -1,9 +1,11 @@
 .App {
-  text-align: center;
-  margin: 1em 2em;
 
   margin: 0;
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+}
+
+.content {
+  text-align: center;
 }
 
 .App-logo {

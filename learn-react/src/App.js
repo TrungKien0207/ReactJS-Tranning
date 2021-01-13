@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import productAPI from './api/productAPI';
+import Header from './components/Header';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import CounterFeatures from './features/Counter';
@@ -23,27 +24,31 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Home page</h1>
+      <Header/>
 
-      {/* <p><Link to="/todos">Todos</Link></p>
-      <p><Link to="/albums">Albums</Link></p> */}
+      <div className="content">
+        <h1>Home page</h1>
 
-      <p><NavLink to="/todos">Todos</NavLink></p>
-      <p><NavLink to="/albums">Albums</NavLink></p>
+        {/* <p><Link to="/todos">Todos</Link></p>
+        <p><Link to="/albums">Albums</Link></p> */}
 
-      <Switch>
-        <Redirect from="/home" to="/" exact />
-        <Redirect from="/post-list/:postId" to="/posts/:postId" exact />
+        <p><NavLink to="/todos">Todos</NavLink></p>
+        <p><NavLink to="/albums">Albums</NavLink></p>
 
-        <Route path="/" component={ CounterFeatures } exact />
-        <Route path="/todos" component={ TodoFeature }/>
-        <Route path="/albums" component={ AlbumFeature }/>
+        <Switch>
+          <Redirect from="/home" to="/" exact />
+          <Redirect from="/post-list/:postId" to="/posts/:postId" exact />
 
-        <Route component={ NotFound }/>
-      </Switch>
+          <Route path="/" component={ CounterFeatures } exact />
+          <Route path="/todos" component={ TodoFeature }/>
+          <Route path="/albums" component={ AlbumFeature }/>
 
-      {/* <Count />
-      <ColorBox /> */}
+          <Route component={ NotFound }/>
+        </Switch>
+
+        {/* <Count />
+        <ColorBox /> */}
+      </div>
     </div>
   );
 }

@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CodeIcon from '@material-ui/icons/Code';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,15 +29,6 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             EZ SHOP
           </Typography>
-
-          <NavLink to="/todos" activeClassName="active-menu">
-            <Button color="inherit">Todo</Button>
-          </NavLink>
-
-          <NavLink to="/albums" activeClassName="active">
-            <Button color="inherit">Albums</Button>
-          </NavLink>
-
           <Button color="inherit">Register</Button>
         </Toolbar>
       </AppBar>

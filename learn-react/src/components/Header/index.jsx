@@ -36,7 +36,7 @@ export default function Header() {
           </NavLink>
 
           <NavLink to="/albums" activeClassName="active">
-            <Button color="inherit">Albums</Button>
+            <Button color="inherit">Albums</Button>.
           </NavLink>
 
           <Button color="inherit">Register</Button>

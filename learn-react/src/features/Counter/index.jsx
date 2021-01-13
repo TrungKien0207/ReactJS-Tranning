@@ -1,8 +1,8 @@
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrease, increase } from './counterSlide';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles({
   root: {
@@ -38,7 +38,7 @@ function CounterFeatures(props) {
   };
 
   return (
-    <div>
+    <div className="container">
       Couter: { count }
 
       <div>

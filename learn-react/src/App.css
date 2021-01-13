@@ -4,8 +4,8 @@
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 }
 
-.content {
-  text-align: center;
+.child {
+  /* text-align: center; */
 }
 
 .App-logo {

@@ -23,6 +23,9 @@ function InputField(props) {
             control={form.control} //bat buoc
             as={TextField}
 
+            margin="normal"
+            variant="outlined"
+            
             fullWidth
             label={label}
             disabled={disabled}

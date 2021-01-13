@@ -4,6 +4,7 @@ import { NavLink, Redirect, Route, Switch } from 'react-router-dom';
 import productAPI from './api/productAPI';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
+import CounterFeatures from './features/Counter';
 //import './App.css';
 import TodoFeature from './features/Todo';
 
@@ -34,7 +35,7 @@ function App() {
         <Redirect from="/home" to="/" exact />
         <Redirect from="/post-list/:postId" to="/posts/:postId" exact />
 
-        <Route path="/" component={ TodoFeature } exact />
+        <Route path="/" component={ CounterFeatures } exact />
         <Route path="/todos" component={ TodoFeature }/>
         <Route path="/albums" component={ AlbumFeature }/>
 

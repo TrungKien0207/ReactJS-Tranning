@@ -1,11 +1,11 @@
 .App {
 
   margin: 0;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Lemonada', cursive;
 }
 
-.child {
-  /* text-align: center; */
+.content {
+  margin-left: 2em;
 }
 
 .App-logo {

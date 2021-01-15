@@ -38,7 +38,7 @@ function CounterFeatures(props) {
   };
 
   return (
-    <div className="container">
+    <div>
       Couter: { count }
 
       <div>

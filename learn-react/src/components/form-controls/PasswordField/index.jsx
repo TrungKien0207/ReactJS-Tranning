@@ -1,4 +1,4 @@
-import { TextField } from '@material-ui/core';
+import { FormHelperText, TextField } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import IconButton from '@material-ui/core/IconButton';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -21,56 +21,45 @@ PasswordField.propTypes = {
 
 function PasswordField(props) {
   const { form, name, label, disabled } = props;
-  const { errors, formState } = form;
-  const hasError = formState.touched[name] && errors[name];
+  const { errors } = form;
+  const hasError = !!errors[name];
   // console.log(errors[name], formState.touched[name]);
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
-    setShowPassword( x => !x );
+    setShowPassword((x) => !x);
   };
 
   return (
-    <div>
-      {/* <Controller
+    <FormControl
+      fullWidth
+      variant="outlined"
+      margin="normal"
+      id="outlined-size-small"
+      defaultValue="Small"
+      size="small"
+      error={hasError}
+    >
+      <InputLabel htmlFor={name}>{label}</InputLabel>
+      <Controller
         name={name} //bat buoc
         control={form.control} //bat buoc
-        as={TextField}
-        margin="normal"
-        variant="outlined"
-        fullWidth
+        as={OutlinedInput}
+        id={name}
+        type={showPassword ? 'text' : 'password'}
         label={label}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton aria-label="toggle password visibility" onClick={toggleShowPassword} edge="end">
+              {showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
+        }
         disabled={disabled}
-        error={!!hasError} //vi de cho errors tra ve boolean
-        helperText={errors[name]?.message} //"?" khong chac message co san(valid)
-      /> */}
+      />
 
-      <FormControl fullWidth variant="outlined" margin="normal">
-        <InputLabel htmlFor={name}>{label}</InputLabel>
-        <Controller
-          name={name} //bat buoc
-          control={form.control} //bat buoc
-          as={OutlinedInput}
-          id={name}
-          type={showPassword ? 'text' : 'password'}
-          label={label}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={toggleShowPassword}
-                edge="end"
-              >
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          }
-          disabled={disabled}
-          error={!!hasError} //vi de cho errors tra ve boolean
-          helperText={errors[name]?.message} //"?" khong chac message co san(valid)
-        />
-      </FormControl>
-    </div>
+      <FormHelperText >{errors[name]?.message}</FormHelperText>
+    </FormControl>
   );
 }
 

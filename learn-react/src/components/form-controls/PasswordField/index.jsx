@@ -36,8 +36,8 @@ function PasswordField(props) {
       variant="outlined"
       margin="normal"
       id="outlined-size-small"
-      defaultValue="Small"
-      size="small"
+      defaultValue="normal"
+      size="normal"
       error={hasError}
     >
       <InputLabel htmlFor={name}>{label}</InputLabel>

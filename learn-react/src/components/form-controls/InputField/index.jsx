@@ -24,8 +24,8 @@ function InputField(props) {
             as={TextField}
 
             id="outlined-size-small"
-            defaultValue="Small"
-            size="small"
+            defaultValue="normal"
+            size="normal"
 
             margin="normal"
             variant="outlined"

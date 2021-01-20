@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import ProductFeature from './features/Product';
 import productAPI from './api/productAPI';
 import './App.css';
 import Header from './components/Header';
@@ -28,8 +29,6 @@ function App() {
       <Header/>
 
       <div className="content">
-        <h1>Home page</h1>
-
         {/* <p><Link to="/todos">Todos</Link></p>
         <p><Link to="/albums">Albums</Link></p> */}
 
@@ -43,6 +42,8 @@ function App() {
           <Route path="/" component={ CounterFeatures } exact />
           <Route path="/todos" component={ TodoFeature }/>
           <Route path="/albums" component={ AlbumFeature }/>
+
+          <Route path="/products" component={ ProductFeature }/>
 
           <Route component={ NotFound }/>
         </Switch>

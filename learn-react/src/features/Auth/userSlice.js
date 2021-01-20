@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import userApi from 'api/userAPI';
-import StorageKeys from 'constants/storage-keys';
+import StorageKeys from '../../constants/storage-keys';
+import userAPI from '../../api/userAPI';
 
 export const register = createAsyncThunk('user/register', async (payload) => {
   //call API to register
-  const data = await userApi.register(payload);
+  const data = await userAPI.register(payload);
 
   // save data to loacl storage
   localStorage.setItem(StorageKeys.TOKEN, data.jwt);
@@ -15,7 +15,7 @@ export const register = createAsyncThunk('user/register', async (payload) => {
 });
 
 export const login = createAsyncThunk('user/login', async (payload) => {
-  const data = await userApi.login(payload);
+  const data = await userAPI.login(payload);
 
   localStorage.setItem(StorageKeys.TOKEN, data.jwt);
   localStorage.setItem(StorageKeys.USER, JSON.stringify(data.user)); //do data.user la 1 object

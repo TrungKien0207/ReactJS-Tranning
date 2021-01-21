@@ -1,11 +1,7 @@
 .App {
-
   margin: 0;
-  font-family: 'Lemonada', cursive;
-}
-
-.content {
-  margin-left: 2em;
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(244,244,244);
 }
 
 .App-logo {

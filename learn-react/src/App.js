@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <Header/>
 
-      <div className="content">
+      <div>
         {/* <p><Link to="/todos">Todos</Link></p>
         <p><Link to="/albums">Albums</Link></p> */}
 

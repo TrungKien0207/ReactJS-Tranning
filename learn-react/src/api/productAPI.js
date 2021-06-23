@@ -1,46 +1,51 @@
-import axiosClient from "./axiosClient";
+import axiosClient from './axiosClient'
 
 const productAPI = {
-    async getAll(params) {
-        const newParams = { ...params };
-        newParams._start = !params._page || params._page <= 1
-            ?0
-            : (params._page - 1)*(params._limit || 50);
-        
-        delete newParams._page;
+   async getAll(params) {
+      const newParams = { ...params }
+      newParams._start =
+         !params._page || params._page <= 1
+            ? 0
+            : (params._page - 1) * (params._limit || 50)
 
-        const productList = await axiosClient.get('/products', {params: newParams});
-        const count = await axiosClient.get('/products/count', {params: newParams});
+      delete newParams._page
 
-        return {
-            data: productList,
-            pagination: {
-                page: params._page,
-                limit: params._limit,
-                count: count,
-            },
-        }
-    },
+      const productList = await axiosClient.get('/products', {
+         params: newParams,
+      })
+      const count = await axiosClient.get('/products/count', {
+         params: newParams,
+      })
 
-    get(id) {
-        const url = `/products/${id}`;
-        return axiosClient.get(url);
-    },
+      return {
+         data: productList,
+         pagination: {
+            page: params._page,
+            limit: params._limit,
+            count: count,
+         },
+      }
+   },
 
-    add(data) {
-        const url = '/products';
-        return axiosClient.post(url, data);
-    },
+   get(id) {
+      const url = `/products/${id}`
+      return axiosClient.get(url)
+   },
 
-    update(data) {
-        const url = `/products/${data.id}`;
-        return axiosClient.patch(url, data);
-    },
+   add(data) {
+      const url = '/products'
+      return axiosClient.post(url, data)
+   },
 
-    remove(id) {
-        const url = `/products/${id}`;
-        return axiosClient.delete(url);
-    }
-};
+   update(data) {
+      const url = `/products/${data.id}`
+      return axiosClient.patch(url, data)
+   },
 
-export default productAPI;
+   remove(id) {
+      const url = `/products/${id}`
+      return axiosClient.delete(url)
+   },
+}
+
+export default productAPI

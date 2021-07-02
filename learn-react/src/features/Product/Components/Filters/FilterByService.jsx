@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import {
    Box,
    Checkbox,
-   Typography,
    FormControlLabel,
    makeStyles,
+   Typography,
 } from '@material-ui/core'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 FilterByService.propTypes = {
-   onChange: PropTypes.func,
    filters: PropTypes.object,
+   onChange: PropTypes.func,
 }
 
 function FilterByService({ filters = {}, onChange }) {
@@ -39,6 +39,14 @@ function FilterByService({ filters = {}, onChange }) {
       const { name, checked } = e.target
       onChange({ [name]: checked })
    }
+   console.log('checked', filters)
+   console.log(
+      '2',
+      [
+         { value: 'isPromotion', label: 'Có khuyển mãi' },
+         { value: 'isFreeShip', label: 'Vận chuyển miễn phí' },
+      ]?.map((service) => filters[service.value])
+   )
 
    return (
       <Box className={classes.root}>
@@ -53,11 +61,10 @@ function FilterByService({ filters = {}, onChange }) {
                   <FormControlLabel
                      control={
                         <Checkbox
-                           checked={filters[service.value]}
+                           checked={filters[service.value] ? true : false}
                            onChange={handleChange}
                            name={service.value}
                            color='primary'
-                           size='small'
                         />
                      }
                      label={service.label}

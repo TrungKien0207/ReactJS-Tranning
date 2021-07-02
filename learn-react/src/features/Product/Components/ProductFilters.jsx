@@ -1,6 +1,7 @@
 import { Box } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useState } from 'react'
 import FilterByCategories from './Filters/FilterByCategories'
 import FilterByPrice from './Filters/FilterByPrice'
 import FilterByService from './Filters/FilterByService'
@@ -11,12 +12,15 @@ ProductFilters.propTypes = {
 }
 
 function ProductFilters({ filters, onChange }) {
+   const [listCategory, setListCategory] = useState([])
+
    const handleCategoryChange = (newCategoryId) => {
       if (!onChange) return
 
       const newFilters = {
-         'category.id': newCategoryId,
+         category: newCategoryId.id,
       }
+      setListCategory(newCategoryId)
 
       onChange(newFilters)
    }

@@ -52,7 +52,7 @@ function FilterByCategories({ onChange }) {
 
    const handleCategoryClick = (category) => {
       if (onChange) {
-         onChange(category.id)
+         onChange(category)
       }
    }
 

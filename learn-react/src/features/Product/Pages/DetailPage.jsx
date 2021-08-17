@@ -1,16 +1,18 @@
-import { css } from '@emotion/react'
-import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core'
-import React from 'react'
-import { Route, useRouteMatch, Switch } from 'react-router-dom'
-import DotLoader from 'react-spinners/DotLoader'
-import AddToCartForm from '../Components/AddToCartForm'
-import ProductInfo from '../Components/ProductInfo'
-import ProductMenu from '../Components/ProductMenu'
-import ProductThumbnail from '../Components/ProductThumbnail'
-import ProductDescription from '../Components/ProductDescription'
-import ProductAdditional from '../Components/ProductAdditional'
-import ProductReviews from '../Components/ProductReviews'
-import useProductDetails from '../hooks/useProductDetails'
+import { css } from '@emotion/react';
+import { Box, Container, Grid, makeStyles, Paper } from '@material-ui/core';
+import React from 'react';
+import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import DotLoader from 'react-spinners/DotLoader';
+import AddToCartForm from '../Components/AddToCartForm';
+import ProductInfo from '../Components/ProductInfo';
+import ProductMenu from '../Components/ProductMenu';
+import ProductThumbnail from '../Components/ProductThumbnail';
+import ProductDescription from '../Components/ProductDescription';
+import ProductAdditional from '../Components/ProductAdditional';
+import ProductReviews from '../Components/ProductReviews';
+import useProductDetails from '../hooks/useProductDetails';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../Cart/cartSlice';
 
 const useStyles = makeStyles((theme) => ({
    root: {},
@@ -25,23 +27,25 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1.5),
       flex: '1 1 0',
    },
-}))
+}));
 
 function DetailPage() {
-   const classes = useStyles()
+   const classes = useStyles();
 
    const {
       params: { productId },
       url,
-   } = useRouteMatch()
+   } = useRouteMatch();
 
-   const { product, loading } = useProductDetails(productId)
+   const { product, loading } = useProductDetails(productId);
+
+   const dispatch = useDispatch();
 
    const override = css`
       display: block;
       margin: 5rem auto;
       border-color: red;
-   `
+   `;
 
    if (loading) {
       return (
@@ -53,12 +57,18 @@ function DetailPage() {
                size={150}
             />
          </Box>
-      )
+      );
    }
 
    const handleAddToCartSubmit = (formValue) => {
-      console.log('Form submit', formValue)
-   }
+      const action = addToCart({
+         id: product.id,
+         product,
+         quantity: formValue.quantity,
+      });
+
+      dispatch(action);
+   };
 
    return (
       <div>
@@ -93,7 +103,7 @@ function DetailPage() {
             </Container>
          </Box>
       </div>
-   )
+   );
 }
 
-export default DetailPage
+export default DetailPage;

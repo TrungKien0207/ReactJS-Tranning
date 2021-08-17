@@ -20,14 +20,14 @@ const cartSlice = createSlice({
          const newItem = action.payload;
 
          //* check id product is available in cart
-         const index = state.cartItem.find((x) => x.id === newItem.id);
+         const index = state.cartItems.find((x) => x.id === newItem.id);
 
          if (index >= 0) {
             //* increase quantity
-            state.cartItem[index].quantity += newItem.quantity;
+            state.cartItems[index].quantity += newItem.quantity;
          } else {
             //* add to cart
-            state.cartItem.push(newItem);
+            state.cartItems.push(newItem);
          }
       },
 
@@ -35,20 +35,28 @@ const cartSlice = createSlice({
          const { id, quantity } = action.payload;
 
          //* check id product is available in cart
-         const index = state.cartItem.find((x) => x.id === id);
+         const index = state.cartItems.find((x) => x.id === id);
 
          if (index >= 0) {
-            state.cartItem[index].quantity = quantity;
+            state.cartItems[index].quantity = quantity;
          }
       },
 
       removeFromCart(state, action) {
          const idNeedRemove = action.payload;
-         state.cartItem = state.cartItem.filter((x) => x.id !== idNeedRemove);
+         state.cartItems = state.cartItems.filter((x) => x.id !== idNeedRemove);
       },
    },
 });
 
 const { actions, reducer } = cartSlice;
-export const { showMiniCart, hideMiniCart } = actions; //* name export
+
+export const {
+   showMiniCart,
+   hideMiniCart,
+   addToCart,
+   removeFromCart,
+   setQuantity,
+} = actions; //* name export
+
 export default reducer; //* default export

@@ -4,9 +4,9 @@ import {
    FormControlLabel,
    makeStyles,
    Typography,
-} from '@material-ui/core'
-import PropTypes from 'prop-types'
-import React from 'react'
+} from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const useStyles = makeStyles((theme) => ({
    root: {
@@ -23,30 +23,22 @@ const useStyles = makeStyles((theme) => ({
          margin: 0,
       },
    },
-}))
+}));
 
 FilterByService.propTypes = {
    filters: PropTypes.object,
    onChange: PropTypes.func,
-}
+};
 
 function FilterByService({ filters = {}, onChange }) {
-   const classes = useStyles()
+   const classes = useStyles();
 
    const handleChange = (e) => {
-      if (!onChange) return
+      if (!onChange) return;
 
-      const { name, checked } = e.target
-      onChange({ [name]: checked })
-   }
-   console.log('checked', filters)
-   console.log(
-      '2',
-      [
-         { value: 'isPromotion', label: 'Có khuyển mãi' },
-         { value: 'isFreeShip', label: 'Vận chuyển miễn phí' },
-      ]?.map((service) => filters[service.value])
-   )
+      const { name, checked } = e.target;
+      onChange({ [name]: checked });
+   };
 
    return (
       <Box className={classes.root}>
@@ -73,7 +65,7 @@ function FilterByService({ filters = {}, onChange }) {
             ))}
          </ul>
       </Box>
-   )
+   );
 }
 
-export default FilterByService
+export default FilterByService;

@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/Header'
 import NotFound from './components/NotFound'
 import AlbumFeature from './features/Album'
+import CartFeature from './features/Cart'
 import CounterFeatures from './features/Counter'
 import ProductFeature from './features/Product'
 import TodoFeature from './features/Todo'
@@ -25,9 +26,10 @@ function App() {
 
                <Route path='/products' component={ProductFeature} />
 
+               <Route path='/cart' component={CartFeature} />
+
                <Route component={NotFound} />
             </Switch>
-
          </div>
       </div>
    )
